@@ -20,14 +20,14 @@ app.post('/pokemons',(req,res)=>{
     res.json(success('Ajouté',newPokemon))
 })
 
-// app.put('/pokemons/:id', (req, res) => {
-//     const id = parseInt(req.params.id);
-//     const pokemonUpdated = { ...req.body, id: id }
-//     pokemons = pokemons.map(pokemon => {
-//      return pokemon.id === id ? pokemonUpdated : pokemon
-//     }) 
-//     const message = `Le pokémon ${pokemonUpdated.name} a bien été modifié.`
-//     res.json(success(message, pokemonUpdated))
-//    })
+app.put('/pokemons/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const pokemonUpdated = { ...req.body, id: id }
+    pokemons = pokemons.map(pokemon => {
+     return pokemon.id === id ? pokemonUpdated : pokemon
+    }) 
+    const message = `Le pokémon ${pokemonUpdated.name} a bien été modifié.`
+    res.json(success(message, pokemonUpdated))
+   })
 
 app.listen('5000',()=>console.log('OK sur port 5000'))
